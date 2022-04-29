@@ -1,17 +1,11 @@
 import Card from "../Card";
 import { Container } from "./style";
 
-const data = [
-  { temp: "21°C", day: "Fri" },
-  { temp: "21°C", day: "Fri" },
-  { temp: "21°C", day: "Fri" },
-  { temp: "21°C", day: "Fri" },
-];
-
+import { CARDS } from "../../constants/content";
 function Feed() {
   return (
     <Container>
-      {data.map((el) => (
+      {CARDS.map((el) => (
         <Card temp={el.temp} day={el.day} />
       ))}
     </Container>

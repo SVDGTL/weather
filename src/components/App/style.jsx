@@ -2,13 +2,18 @@ import styled from "styled-components";
 
 const Main = styled.main`
   box-sizing: border-box;
-  width: 864px;
+  padding-inline: 4.75rem;
+  padding-block: 3.875rem;
+  width: 54rem;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 `;
 const Aside = styled.aside`
   box-sizing: border-box;
-  width: 576px;
+  width: 36rem;
   height: 100%;
 
   background: radial-gradient(

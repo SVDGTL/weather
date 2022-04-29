@@ -1,10 +1,11 @@
-import { Container, Text, DemoIcon } from "./style";
+import { Container, Text } from "./style";
+import CardIcon from "../Icons/CardIcon";
 
 function Card({ temp, day }) {
   return (
     <Container>
       <Text children={temp} />
-      <DemoIcon />
+      <CardIcon />
       <Text children={day} />
     </Container>
   );
