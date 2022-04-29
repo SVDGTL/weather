@@ -39,7 +39,9 @@ export const Global = createGlobalStyle`
   }
 
   #root {
-    border: 1px solid black; // TODO: УДАЛИТЬ ПОТОМ
+    border: 2px solid pink; // TODO: УДАЛИТЬ ПОТОМ
+    border-radius: 0.625rem; // TODO: УДАЛИТЬ ПОТОМ
+
     width: 1440px;
     height: 900px;
     display: flex;

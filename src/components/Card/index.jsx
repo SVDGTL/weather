@@ -1,10 +1,10 @@
-import { Container, Text, Cloud } from "./style";
+import { Container, Text, DemoIcon } from "./style";
 
 function Card({ temp, day }) {
   return (
     <Container>
       <Text children={temp} />
-      <Cloud />
+      <DemoIcon />
       <Text children={day} />
     </Container>
   );

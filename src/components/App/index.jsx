@@ -1,16 +1,13 @@
-import Card from "../Card";
+import Feed from "../Feed";
 import { Main, Aside } from "./style";
-
-export { Main, Aside };
 
 function App() {
   return (
     <>
       <Main>
-        <Card temp="24°C" day="Fri" />
-        <Card temp="24°C" day="Sat" />
+        <Feed />
       </Main>
-      <Aside>ТУТ ПРАВАЯ ЧАСТЬ</Aside>
+      <Aside></Aside>
     </>
   );
 }

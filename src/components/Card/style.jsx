@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+const Container = styled.div`
+  box-sizing: border-box;
+
   height: 12.5rem;
   width: 7rem;
 
   padding: 1rem;
-  margin: 1rem;
-
   border-radius: 0.625rem;
   border: 1px solid #a8a8a8;
 
@@ -16,9 +16,11 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  filter: drop-shadow(-2px 2.26px 0.75px rgba(0, 0, 0, 0.15));
 `;
 
-export const Text = styled.p`
+const Text = styled.p`
   margin: 0;
   padding: 0;
 
@@ -30,7 +32,7 @@ export const Text = styled.p`
   text-align: center;
 `;
 
-export const Cloud = () => {
+const DemoIcon = () => {
   return (
     <svg
       width="111"
@@ -144,3 +146,5 @@ export const Cloud = () => {
     </svg>
   );
 };
+
+export { DemoIcon, Container, Text };
