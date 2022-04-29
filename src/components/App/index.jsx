@@ -1,16 +1,21 @@
-import Card from "../Card";
+import Date from "../Date";
+import Deg from "../Deg";
+import Feed from "../Feed";
+import WeatherIcon from "../Icons/WeatherIcon";
+import Params from "../Params";
 import { Main, Aside } from "./style";
-
-export { Main, Aside };
 
 function App() {
   return (
     <>
       <Main>
-        <Card temp="24°C" day="Fri" />
-        <Card temp="24°C" day="Sat" />
+        <WeatherIcon />
+        <Deg />
+        <Date /> {/* TODO: кривая верстка */}
+        <Params /> {/* TODO: кривая верстка */}
+        <Feed />
       </Main>
-      <Aside>ТУТ ПРАВАЯ ЧАСТЬ</Aside>
+      <Aside></Aside>
     </>
   );
 }
