@@ -1,12 +1,13 @@
+import { useData } from '../../context/context'
 import Card from '../Card'
 import Container from './style'
-import { CARDS } from '../../constants/content'
 
 function Feed() {
+  const { cards } = useData()
   return (
     <Container>
-      {CARDS.map((el) => (
-        <Card temp={el.temp} day={el.day} />
+      {cards.map((el) => (
+        <Card temp={el.temp} day={el.day} key={el.index} />
       ))}
     </Container>
   )

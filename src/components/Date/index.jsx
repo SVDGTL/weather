@@ -1,11 +1,12 @@
+import { useData } from '../../context/context'
 import { Container, Day, Time } from './style'
-import { DATE } from '../../constants/content'
 
 function Date() {
+  const { date } = useData()
   return (
     <Container>
-      <Day>{DATE.day}</Day>
-      <Time>{DATE.time}</Time>
+      <Day>{date.day}</Day>
+      <Time>{date.time}</Time>
     </Container>
   )
 }

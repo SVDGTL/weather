@@ -1,11 +1,13 @@
 import { Container, Degrees, StyledSpan } from './style'
-import { DEG } from '../../constants/content'
+import { useData } from '../../context/context'
 
 function Deg() {
+  const { degrees } = useData()
+
   return (
     <Container>
-      <Degrees>{DEG.deg}</Degrees>
-      <StyledSpan>{DEG.measure}</StyledSpan>
+      <Degrees>{degrees.deg}</Degrees>
+      <StyledSpan>{degrees.measure}</StyledSpan>
     </Container>
   )
 }
