@@ -1,13 +1,13 @@
-import { Container, Degrees, StyledSpan } from "./style";
+import { Container, Degrees, StyledSpan } from './style'
+import { DEG } from '../../constants/content'
 
-import { DEG } from "../../constants/content";
 function Deg() {
   return (
     <Container>
-      <Degrees children={DEG.deg} />
-      <StyledSpan children={DEG.measure} />
+      <Degrees>{DEG.deg}</Degrees>
+      <StyledSpan>{DEG.measure}</StyledSpan>
     </Container>
-  );
+  )
 }
 
-export default Deg;
+export default Deg

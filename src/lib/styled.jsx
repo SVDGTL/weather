@@ -1,7 +1,7 @@
-import { createGlobalStyle } from "styled-components";
-import { normalize } from "styled-normalize";
+import { createGlobalStyle } from 'styled-components'
+import { normalize } from 'styled-normalize'
 
-export const Global = createGlobalStyle`
+const Global = createGlobalStyle`
   ${normalize}
 
   body {
@@ -32,9 +32,10 @@ export const Global = createGlobalStyle`
 
 
 
+
     height: 100vh;
     width: 100vw;
-    background: var(--d1);
+    background: var(--n1);
     color: var(--main-color);
     display: flex;
     justify-content: center;
@@ -52,4 +53,6 @@ export const Global = createGlobalStyle`
     align-items: center;
     flex-direction: row;
   }
-`;
+`
+
+export default Global

@@ -1,4 +1,4 @@
-const CardIcon = () => {
+function CardIcon() {
   return (
     <svg
       width="111"
@@ -11,13 +11,13 @@ const CardIcon = () => {
         <path
           d="M67.0015 28.5273C73.681 33.4772 89.356 38.7259 83.3278 44.2106C77.2996 49.6952 42.8437 65.3626 28.4973 59.3066C21.8178 54.3568 34.4817 38.419 40.5099 32.9343C46.5381 27.4497 60.322 23.5775 67.0015 28.5273Z"
           fill="url(#paint0_linear_240_2608)"
-          fill-opacity="0.3"
+          fillOpacity="0.3"
         />
       </g>
       <g filter="url(#filter1_ii_240_2608)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M56.6642 49.9033V49.9037H41.4343C36.074 49.9037 31.7286 45.5584 31.7286 40.1981C31.7286 34.8378 36.074 30.4924 41.4343 30.4924H44.1964C46.7364 30.4924 49.0989 31.252 51.0694 32.5563C53.8604 26.25 60.1728 21.85 67.5128 21.85H71.4592C79.2059 21.85 85.4858 28.1299 85.4858 35.8766C85.4858 43.6233 79.2059 49.9033 71.4592 49.9033H56.6642Z"
           fill="white"
         />
@@ -30,9 +30,9 @@ const CardIcon = () => {
           width="109.311"
           height="85.6602"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -51,9 +51,9 @@ const CardIcon = () => {
           width="68.5579"
           height="42.8545"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -105,12 +105,12 @@ const CardIcon = () => {
           y2="19.9554"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#254659" />
-          <stop offset="1" stop-color="#023553" />
+          <stop stopColor="#254659" />
+          <stop offset="1" stopColor="#023553" />
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default CardIcon;
+export default CardIcon

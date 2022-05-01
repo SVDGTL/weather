@@ -1,7 +1,7 @@
-import Card from "../Card";
-import { Container } from "./style";
+import Card from '../Card'
+import Container from './style'
+import { CARDS } from '../../constants/content'
 
-import { CARDS } from "../../constants/content";
 function Feed() {
   return (
     <Container>
@@ -9,7 +9,7 @@ function Feed() {
         <Card temp={el.temp} day={el.day} />
       ))}
     </Container>
-  );
+  )
 }
 
-export default Feed;
+export default Feed

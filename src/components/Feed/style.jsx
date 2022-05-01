@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Container = styled.section`
   display: flex;
@@ -6,6 +6,6 @@ const Container = styled.section`
   align-items: center;
 
   gap: 54px;
-`;
+`
 
-export { Container };
+export default Container

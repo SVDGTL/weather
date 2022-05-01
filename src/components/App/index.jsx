@@ -1,9 +1,9 @@
-import Date from "../Date";
-import Deg from "../Deg";
-import Feed from "../Feed";
-import WeatherIcon from "../Icons/WeatherIcon";
-import Params from "../Params";
-import { Main, Aside } from "./style";
+import Date from '../Date'
+import Deg from '../Deg'
+import Feed from '../Feed'
+import WeatherIcon from '../Icons/WeatherIcon'
+import Params from '../Params'
+import { Main, Aside } from './style'
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
         <Params /> {/* TODO: кривая верстка */}
         <Feed />
       </Main>
-      <Aside></Aside>
+      <Aside />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

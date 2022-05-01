@@ -1,14 +1,21 @@
-import { Container, Text } from "./style";
-import CardIcon from "../Icons/CardIcon";
+import PropTypes from 'prop-types'
+
+import { Container, Text } from './style'
+import CardIcon from '../Icons/CardIcon'
 
 function Card({ temp, day }) {
   return (
     <Container>
-      <Text children={temp} />
+      <Text>{temp}</Text>
       <CardIcon />
-      <Text children={day} />
+      <Text>{day}</Text>
     </Container>
-  );
+  )
 }
 
-export default Card;
+Card.propTypes = {
+  temp: PropTypes.string.isRequired,
+  day: PropTypes.string.isRequired,
+}
+
+export default Card
