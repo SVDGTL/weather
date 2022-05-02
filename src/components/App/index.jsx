@@ -1,12 +1,12 @@
 import DataProvider from '../../context/context'
 import Main from '../Main'
-import Aside from './style'
+import Progressbar from '../Progressbar'
 
 function App() {
   return (
     <DataProvider>
       <Main />
-      <Aside />
+      <Progressbar deg={90} />
     </DataProvider>
   )
 }
