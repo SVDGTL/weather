@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-import { Container, Text } from './style'
-import CardIcon from '../Icons/CardIcon'
+import { Container, Text } from './style';
+import CardIcon from '../Icons/CardIcon';
 
 function Card({ temp, day }) {
   return (
@@ -10,12 +10,12 @@ function Card({ temp, day }) {
       <CardIcon />
       <Text>{day}</Text>
     </Container>
-  )
+  );
 }
 
 Card.propTypes = {
   temp: PropTypes.string.isRequired,
   day: PropTypes.string.isRequired,
-}
+};
 
-export default Card
+export default Card;

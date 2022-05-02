@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { normalize } from 'styled-normalize'
+import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 const Global = createGlobalStyle`
   ${normalize}
@@ -53,6 +53,6 @@ const Global = createGlobalStyle`
     align-items: center;
     flex-direction: row;
   }
-`
+`;
 
-export default Global
+export default Global;

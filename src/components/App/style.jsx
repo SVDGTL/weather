@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Aside = styled.aside`
   box-sizing: border-box;
@@ -10,6 +10,6 @@ const Aside = styled.aside`
     rgba(255, 255, 255, 0.4) 0%,
     rgba(255, 255, 255, 0) 100%
   );
-`
+`;
 
-export default Aside
+export default Aside;

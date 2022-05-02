@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'
-import { createContext, useContext, useState } from 'react'
+import PropTypes from 'prop-types';
+import { createContext, useContext, useState } from 'react';
 
-const Data = createContext()
+const Data = createContext();
 
 export function useData() {
-  return useContext(Data)
+  return useContext(Data);
 }
 
 function DataProvider({ children }) {
@@ -23,13 +23,13 @@ function DataProvider({ children }) {
       day: '17th Jun ‘21',
       time: 'Thrusday | 2:45 am',
     },
-  })
+  });
 
-  return <Data.Provider value={data}>{children}</Data.Provider>
+  return <Data.Provider value={data}>{children}</Data.Provider>;
 }
 
 DataProvider.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default DataProvider
+export default DataProvider;

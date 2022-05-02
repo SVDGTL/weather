@@ -1,4 +1,4 @@
-import { Container, HalfCircle, Slider, Title } from './style'
+import { Container, HalfCircle, Slider, Title } from './style';
 
 function Progressbar({ deg }) {
   return (
@@ -9,7 +9,7 @@ function Progressbar({ deg }) {
         <Title>Bla-bla-bla</Title>
       </HalfCircle>
     </Container>
-  )
+  );
 }
 
-export default Progressbar
+export default Progressbar;

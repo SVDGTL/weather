@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -18,7 +18,7 @@ const Container = styled.div`
   align-items: center;
 
   filter: drop-shadow(-1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1));
-`
+`;
 
 const Text = styled.p`
   margin: 0;
@@ -30,6 +30,6 @@ const Text = styled.p`
   line-height: 30px;
   letter-spacing: 0em;
   text-align: center;
-`
+`;
 
-export { Container, Text }
+export { Container, Text };

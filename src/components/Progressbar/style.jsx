@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ const Container = styled.div`
   align-items: center;
   margin-top: 60px;
   overflow: hidden;
-`
+`;
 const Slider = styled.div`
   height: 16px;
   width: 16px;
@@ -34,7 +34,7 @@ const Slider = styled.div`
     z-index: 1000000;
     border-radius: 50%;
   }
-`
+`;
 
 const Title = styled.span`
   display: block;
@@ -46,7 +46,7 @@ const Title = styled.span`
   text-align: center;
   color: #fff;
   text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
-`
+`;
 const HalfCircle = styled.div`
   margin: 8px 8px 0 8px;
   position: relative;
@@ -69,11 +69,10 @@ const HalfCircle = styled.div`
     border: 6px solid;
     border-radius: 50%;
     border-color: #713ffd #713ffd rgba(172, 142, 255, 0.78)
-    rgba(172, 142, 255, 0.78);
-    transform: rotate(calc(1deg * (-45 + (${(prop) => prop.deg} * 1.8)));
+      rgba(172, 142, 255, 0.78);
+    transform: rotate(calc(1deg * (-45 + (${(prop) => prop.deg} * 1.8))));
     transition: transform 1s ease-out;
-
   }
-`
+`;
 
-export { Container, HalfCircle, Slider, Title }
+export { Container, HalfCircle, Slider, Title };
