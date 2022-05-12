@@ -1,0 +1,33 @@
+/* regular overpass */
+@font-face {
+  font-family: 'Overpass';
+  src:
+  url(./overpass/OverpassRegular.eot),
+  url(./overpass/OverpassRegular.ttf) format('truetype'),
+  url(./overpass/OverpassRegular.woff) format('woff'),
+  url(./overpass/OverpassRegular.woff2) format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+/* light overpass */
+@font-face {
+  font-family: 'Inter';
+  src:
+  url(./inter/InterLight.eot),
+  url(./inter/InterLight.ttf) format('truetype'),
+  url(./inter/InterLight.woff) format('woff'),
+  url(./inter/InterLight.woff2) format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+/* bold italic inter */
+@font-face {
+  font-family: 'Inter';
+  src:
+  url(./inter/InterBoldItalic.eot),
+  url(./inter/InterBoldItalic.ttf) format('truetype'),
+  url(./inter/InterBoldItalic.woff) format('woff'),
+  url(./inter/InterBoldItalic.woff2) format('woff2');
+  font-weight: 600;
+  font-style: italic;
+}
