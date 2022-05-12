@@ -7,6 +7,7 @@ const Global = createGlobalStyle`
   body {
     // COLORS
     --main-color: hsl(0, 0%, 100%);
+    --no-active-color: #EBEBEB;
     --d1: linear-gradient(248.66deg, #8C6BAE 0%, #FF9696 100%);
     --d2: linear-gradient(248.66deg, #91BEF3 0%, #EEAECA 100%);
     --d3: linear-gradient(248.66deg, #7673DC 0%, #A8C8ED 100%);
@@ -22,32 +23,31 @@ const Global = createGlobalStyle`
     --params: 400 22px/28px Overpass;
     // ASIDE
     --search: 300 32px/38px Inter;
-    --clock-aq-uvi: 300 28px/34px Inter;
+    --clock-aq-uvi: 400 28px/34px Inter;
+    --clock-aq-uvi-small: 400 22px/27px Inter;
     --clock-upper-time: 400 32px/39px Inter;
     --clock-bottom-time: 400 29px/35px Inter;
     --clock-am-pm: 400 18px/22px Inter;
+
     // ALL
     --letter-spacing: 0em;
 
-
-
-
-
-    height: 100vh;
-    width: 100vw;
+    /* height: 100vh;
+    width: 100vw; */
     background: var(--n1);
     color: var(--main-color);
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    max-width: 1440px;
+    max-height: 900px;
+    margin: 0 auto;
   }
 
   #root {
-    border: 2px solid pink; // TODO: УДАЛИТЬ ПОТОМ
-    border-radius: 0.2rem; // TODO: УДАЛИТЬ ПОТОМ
+    /* border: 2px solid pink; // TODO: УДАЛИТЬ ПОТОМ
+    border-radius: 0.2rem; // TODO: УДАЛИТЬ ПОТОМ */
 
-    width: 1440px;
-    height: 900px;
     display: flex;
     justify-content: space-between;
     align-items: center;
