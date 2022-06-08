@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-const Container = styled.main`
+export const Container = styled.main`
   box-sizing: border-box;
-  padding-inline: 4.75rem;
-  padding-block: 3.875rem;
+  padding: 40px;
   width: 100%;
   max-width: 864px;
+  min-height: 900px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -13,4 +13,4 @@ const Container = styled.main`
   justify-content: space-between;
 `;
 
-export default Container;
+export const SwitchButton = styled.div``;

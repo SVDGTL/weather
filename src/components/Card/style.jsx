@@ -3,11 +3,11 @@ import styled from 'styled-components';
 const Container = styled.div`
   box-sizing: border-box;
 
-  height: 12.5rem;
-  width: 7rem;
+  height: 200px;
+  width: 110px;
 
-  padding: 1rem;
-  border-radius: 0.625rem;
+  padding: 16px;
+  border-radius: 10px;
   border: 1px solid pink;
 
   background: rgba(255, 255, 255, 0.2);
