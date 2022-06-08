@@ -6,7 +6,7 @@ const Container = styled.section`
 
   gap: 20px;
 
-  padding-left: 0.625rem;
+  padding-left: 10px;
 
   filter: drop-shadow(-2px 2.26px 0.75px rgba(0, 0, 0, 0.15));
 `;
