@@ -1,11 +1,11 @@
 import DataProvider from '../../context/context';
-import Main from '../Main';
+// import Main from '../Main';
 import Aside from '../Aside';
 
 function App() {
   return (
     <DataProvider>
-      <Main />
+      {/* <Main /> */}
       <Aside />
     </DataProvider>
   );

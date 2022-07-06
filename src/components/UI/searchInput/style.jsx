@@ -37,6 +37,7 @@ const Search = styled.input.attrs((props) => ({
   name: 'search',
   minlength: 3,
   value: props.value,
+  disabled: props.inputState,
 }))`
   position: relative;
   padding: 0 0 0 19px;

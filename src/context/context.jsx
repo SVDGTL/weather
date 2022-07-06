@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { createContext, useContext, useState } from 'react';
+// import axios from 'axios';
+import { createContext, useContext, useState, useMemo } from 'react';
 
 const Data = createContext();
 
@@ -8,7 +9,7 @@ export function useData() {
 }
 
 function DataProvider({ children }) {
-  const [data] = useState({
+  const [data, setData] = useState({
     degrees: {
       deg: 27,
       measure: '°C',
@@ -23,9 +24,13 @@ function DataProvider({ children }) {
       day: '17th Jun ‘21',
       time: 'Thrusday | 2:45 am',
     },
+    inputValue: '',
+    searchLocation: false,
+    search: '',
+    cityName: '',
   });
-
-  return <Data.Provider value={data}>{children}</Data.Provider>;
+  const memoData = useMemo(() => ({ data, setData }), [data]);
+  return <Data.Provider value={memoData}>{children}</Data.Provider>;
 }
 
 DataProvider.propTypes = {
