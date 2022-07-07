@@ -1,17 +1,16 @@
 import axios from 'axios';
 
-const APIKey = '09ce57b84777c202831cf3ad6772d860';
+const APIKey = 'dd2bdc1e4ca46d8ba241814066d3790f';
 const geocodingAPIUrl = 'http://api.openweathermap.org/geo/1.0/direct';
 const weatherAPIUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 export async function getWeather(data) {
-  const { lon, lat } = data;
-  console.log(lon, lat);
+  const { latitude, longitude } = data;
   return axios
     .get(weatherAPIUrl, {
       params: {
-        lat,
-        lon,
+        lat: latitude,
+        lon: longitude,
         units: 'metric',
         lang: 'ru',
         appid: APIKey,

@@ -8,7 +8,7 @@ export function useData() {
   return useContext(Data);
 }
 
-function DataProvider({ children }) {
+export function DataProvider({ children }) {
   const [data, setData] = useState({
     // degrees: {
     //   deg: 27,
@@ -24,6 +24,11 @@ function DataProvider({ children }) {
     //   day: '17th Jun ‘21',
     //   time: 'Thrusday | 2:45 am',
     // },
+    noGeo: null,
+    geolocation: {
+      latitude: null,
+      longitude: null,
+    },
     weather: {},
     inputValue: '',
     searchLocation: false,
@@ -37,5 +42,3 @@ function DataProvider({ children }) {
 DataProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default DataProvider;

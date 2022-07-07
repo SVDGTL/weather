@@ -8,6 +8,17 @@ function SearchInput() {
   // контекст
   const { data, setData } = useData();
   const { searchLocation, search, cityName } = data;
+  // useEffect(() => {
+  //   if (geolocation.latitude !== null) {
+  //     onLoadWeather();
+  //   }
+  // }, []);
+
+  const setWeather = async () => {
+    const geo = await getGeo(cityName);
+    const weather = await getWeather(...geo);
+    setData({ ...data, weather, search: '' });
+  };
 
   const onBlurHandler = () => {
     setData({ ...data, searchLocation: !searchLocation, search: ' ' });
@@ -15,6 +26,7 @@ function SearchInput() {
   };
 
   const onClickHandler = () => {
+    if (search.length > 0) setWeather();
     setInputState((prev) => !prev);
     setData({ ...data, searchLocation: !searchLocation });
   };
@@ -24,14 +36,11 @@ function SearchInput() {
     setData({ ...data, search: city, cityName: city });
   };
 
-  const onKeyPressHandler = async (evt) => {
+  const onKeyPressHandler = (evt) => {
     if (evt.key === 'Enter') {
-      const geo = await getGeo(cityName);
-      const weather = await getWeather(...geo);
-      setData({ ...data, weather, search: '' });
+      setWeather();
     }
   };
-  console.log(data);
   return (
     <>
       <SearchLocation state={searchLocation}>{cityName}</SearchLocation>
