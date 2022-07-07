@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { Search, SearchIcon, SearchLocation } from './style';
 import { useData } from '../../../context/context';
-import getWeather from '../../../services/API';
+import { getGeo, getWeather } from '../../../services/API';
 
 function SearchInput() {
   const [inputState, setInputState] = useState(true);
   // контекст
   const { data, setData } = useData();
   const { searchLocation, search, cityName } = data;
-  console.log(data);
-  // хардкод
 
   const onBlurHandler = () => {
     setData({ ...data, searchLocation: !searchLocation, search: ' ' });
@@ -26,16 +24,16 @@ function SearchInput() {
     setData({ ...data, search: city, cityName: city });
   };
 
-  const onKeyPressHandler = (evt) => {
+  const onKeyPressHandler = async (evt) => {
     if (evt.key === 'Enter') {
-      console.log('test');
-      getWeather(cityName);
+      const geo = await getGeo(cityName);
+      const weather = await getWeather(...geo);
+      setData({ ...data, weather, search: '' });
     }
   };
-
+  console.log(data);
   return (
     <>
-      {/* потом поменять на сёрч */}
       <SearchLocation state={searchLocation}>{cityName}</SearchLocation>
       <Search
         state={searchLocation}
