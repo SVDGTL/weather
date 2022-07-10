@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const APIKey = 'dd2bdc1e4ca46d8ba241814066d3790f';
 const geocodingAPIUrl = 'http://api.openweathermap.org/geo/1.0/direct';
-const weatherAPIUrl = 'https://api.openweathermap.org/data/2.5/weather';
+const weatherAPIUrl = 'https://api.openweathermap.org/data/2.5/onecall';
 
 export async function getWeather(data) {
   const { latitude, longitude } = data;
