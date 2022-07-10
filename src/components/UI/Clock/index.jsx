@@ -12,8 +12,7 @@ import {
 
 function Clock({ size, time }) {
   const deg = 6;
-  // хардкод
-  const { hh, mm, ss, title } = time;
+  const { hh, mm, ss, title, hhEng, mmEnd } = time;
   // для вставки
   const minutes = +mm * deg;
   const hours = +hh * 30 + minutes / 12;
@@ -30,7 +29,9 @@ function Clock({ size, time }) {
         <SubTitle>
           {hh}:{mm}
         </SubTitle>
-        <SubTitleNoActive>11:40</SubTitleNoActive>
+        <SubTitleNoActive>
+          {hhEng}:{mmEnd}
+        </SubTitleNoActive>
       </ClockContainer>
     </Container>
   );

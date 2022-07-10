@@ -34,6 +34,7 @@ export function DataProvider({ children }) {
     searchLocation: false,
     search: '',
     cityName: '',
+    air: null,
   });
   const memoData = useMemo(() => ({ data, setData }), [data]);
   return <Data.Provider value={memoData}>{children}</Data.Provider>;

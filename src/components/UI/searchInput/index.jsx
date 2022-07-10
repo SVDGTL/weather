@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Search, SearchIcon, SearchLocation } from './style';
 import { useData } from '../../../context/context';
-import { getGeo, getWeather } from '../../../services/API';
+import { getGeo, getWeather, getAir } from '../../../services/API';
 
 function SearchInput() {
   const [inputState, setInputState] = useState(true);
@@ -17,7 +17,9 @@ function SearchInput() {
   const setWeather = async () => {
     const geo = await getGeo(cityName);
     const weather = await getWeather(...geo);
-    setData({ ...data, weather, search: '' });
+    const air = await getAir(...geo);
+    const airQuality = air.main.aqi;
+    setData({ ...data, weather, search: '', air: airQuality });
   };
 
   const onBlurHandler = () => {

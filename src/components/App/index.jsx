@@ -3,26 +3,29 @@ import ReactLoading from 'react-loading';
 import { useData } from '../../context/context';
 // import Main from '../Main';
 import Aside from '../Aside';
-import { getWeather } from '../../services/API';
+import { getWeather, getCityName, getAir } from '../../services/API';
 import Loading from './style';
 
 const Geolocation = () => {
   const { data, setData } = useData();
 
   useEffect(() => {
+    let weather;
     navigator.geolocation.getCurrentPosition((loc) => {
-      const { latitude } = loc.coords;
-      const { longitude } = loc.coords;
+      const lat = loc.coords.latitude;
+      const lon = loc.coords.longitude;
       const geolocation = loc.coords;
-      let weather;
-
       const onLoadWeather = async () => {
         weather = await getWeather(geolocation);
+        const city = await getCityName(lat, lon);
+        const air = await getAir(geolocation);
         setData({
           ...data,
-          geolocation: { latitude, longitude },
+          geolocation: { lat, lon },
           weather,
           noGeo: false,
+          cityName: city.name,
+          air: air.main.aqi,
         });
       };
       onLoadWeather();
@@ -32,7 +35,6 @@ const Geolocation = () => {
 
 function App() {
   const { data } = useData();
-  console.log(data);
   const loading = data.noGeo;
   return (
     <>
@@ -43,7 +45,7 @@ function App() {
       )}
       <Geolocation />
       {/* <Main /> */}
-      <Aside />
+      {!loading && <Aside />}
     </>
   );
 }
