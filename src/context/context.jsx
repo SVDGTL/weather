@@ -24,6 +24,7 @@ export function DataProvider({ children }) {
     //   day: '17th Jun ‘21',
     //   time: 'Thrusday | 2:45 am',
     // },
+    error: false,
     noGeo: true,
     geolocation: {
       latitude: null,

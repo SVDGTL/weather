@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import ReactLoading from 'react-loading';
 import { useData } from '../../context/context';
-// import Main from '../Main';
+import Main from '../Main';
 import Aside from '../Aside';
 import { getWeather, getCityName, getAir } from '../../services/API';
 import Loading from './style';
@@ -11,25 +11,36 @@ const Geolocation = () => {
 
   useEffect(() => {
     let weather;
-    navigator.geolocation.getCurrentPosition((loc) => {
-      const lat = loc.coords.latitude;
-      const lon = loc.coords.longitude;
-      const geolocation = loc.coords;
-      const onLoadWeather = async () => {
-        weather = await getWeather(geolocation);
-        const city = await getCityName(lat, lon);
-        const air = await getAir(geolocation);
+    navigator.geolocation.getCurrentPosition(
+      (loc) => {
+        const lat = loc.coords.latitude;
+        const lon = loc.coords.longitude;
+        const geolocation = loc.coords;
+        const onLoadWeather = async () => {
+          weather = await getWeather(geolocation);
+          const city = await getCityName(lat, lon);
+          const air = await getAir(geolocation);
+          setData({
+            ...data,
+            geolocation: { lat, lon },
+            weather,
+            noGeo: false,
+            cityName: city.name,
+            air: air.main.aqi,
+          });
+        };
+        onLoadWeather();
+      },
+      (error) => {
+        console.log(error);
         setData({
           ...data,
-          geolocation: { lat, lon },
-          weather,
+          error: true,
           noGeo: false,
-          cityName: city.name,
-          air: air.main.aqi,
+          cityName: 'Город не определен',
         });
-      };
-      onLoadWeather();
-    });
+      }
+    );
   }, []);
 };
 
@@ -44,7 +55,7 @@ function App() {
         </Loading>
       )}
       <Geolocation />
-      {/* <Main /> */}
+      {!loading && <Main />}
       {!loading && <Aside />}
     </>
   );

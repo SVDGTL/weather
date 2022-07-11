@@ -28,6 +28,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "prettier/prettier": "error",
     "react/prop-types": 0, // Отключаем правило проверки передаваемых типов.
-    "no-console":"off"
+    "no-console":"off",
+    "prefer-destructuring": ["error", {"object": false, "array": false}]
   }
 }

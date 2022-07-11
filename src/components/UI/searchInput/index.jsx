@@ -19,7 +19,7 @@ function SearchInput() {
     const weather = await getWeather(...geo);
     const air = await getAir(...geo);
     const airQuality = air.main.aqi;
-    setData({ ...data, weather, search: '', air: airQuality });
+    setData({ ...data, weather, search: '', air: airQuality, error: false });
   };
 
   const onBlurHandler = () => {

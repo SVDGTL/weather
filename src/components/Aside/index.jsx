@@ -168,29 +168,38 @@ function Moon({ currentDay }) {
 
 function Aside() {
   const { data } = useData();
-  const weather = data.weather.daily;
-  const uvData = data.weather.current;
-  console.log(uvData);
-  // найти текущий день в массиве ежедневной погоды
-  const currentDay = weather[0];
+  console.log(data.error);
+  let weather;
+  let uvData;
+  let currentDay;
+  if (!data.error) {
+    weather = data.weather.daily;
+    uvData = data.weather.current;
+    // найти текущий день в массиве ежедневной погоды
+    currentDay = weather[0];
+  }
 
   return (
     <AsideContainer>
       <SearchContainer>
         <SearchInput />
       </SearchContainer>
-      <ClockContainer>
-        <Sunrise currentDay={currentDay} />
-        <Moon currentDay={currentDay} />
-        <Sunset currentDay={currentDay} />
-      </ClockContainer>
-      <InfoContainer>
-        <Info />
-      </InfoContainer>
-      <ProgressContainer>
-        <AirQuality data={data} />
-        <UVIndex weather={uvData} />
-      </ProgressContainer>
+      {!data.error && (
+        <>
+          <ClockContainer>
+            <Sunrise currentDay={currentDay} />
+            <Moon currentDay={currentDay} />
+            <Sunset currentDay={currentDay} />
+          </ClockContainer>
+          <InfoContainer>
+            <Info />
+          </InfoContainer>
+          <ProgressContainer>
+            <AirQuality data={data} />
+            <UVIndex weather={uvData} />
+          </ProgressContainer>
+        </>
+      )}
     </AsideContainer>
   );
 }
