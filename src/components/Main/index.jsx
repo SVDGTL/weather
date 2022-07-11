@@ -1,8 +1,8 @@
-import Date from '../Date';
-import Deg from '../Deg';
-import Feed from '../Feed';
+import CurrentDate from '../CurrentDate';
+// import Deg from '../Deg';
+// import Feed from '../Feed';
 import WeatherIcon from '../Icons/WeatherIcon';
-import Params from '../Params';
+// import Params from '../Params';
 import SwitchButton from '../SwitchButton';
 import { Container } from './style';
 
@@ -20,10 +20,10 @@ function Main() {
         <WeatherIcon />
         <SwitchButton />
       </div>
-      <Deg />
-      <Date />
-      <Params /> {/* TODO: кривая верстка */}
-      <Feed />
+      {/* <Deg /> */}
+      <CurrentDate />
+      {/* <Params /> 
+      <Feed /> */}
     </Container>
   );
 }

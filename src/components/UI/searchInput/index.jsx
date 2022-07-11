@@ -1,33 +1,58 @@
 import { useState } from 'react';
 import { Search, SearchIcon, SearchLocation } from './style';
+import { useData } from '../../../context/context';
+import { getGeo, getWeather, getAir } from '../../../services/API';
 
 function SearchInput() {
-  // хардкод
-  const [value] = useState('Там, где жопа в тепле');
-  const [state, setState] = useState(false);
-  const [search, setSearch] = useState('');
+  const [inputState, setInputState] = useState(true);
+  // контекст
+  const { data, setData } = useData();
+  const { searchLocation, search, cityName } = data;
+  // useEffect(() => {
+  //   if (geolocation.latitude !== null) {
+  //     onLoadWeather();
+  //   }
+  // }, []);
+
+  const setWeather = async () => {
+    const geo = await getGeo(cityName);
+    const weather = await getWeather(...geo);
+    const air = await getAir(...geo);
+    const airQuality = air.main.aqi;
+    setData({ ...data, weather, search: '', air: airQuality, error: false });
+  };
+
   const onBlurHandler = () => {
-    setState((prev) => !prev);
-    setSearch('');
+    setData({ ...data, searchLocation: !searchLocation, search: ' ' });
+    setInputState((prev) => !prev);
   };
 
   const onClickHandler = () => {
-    setState((prev) => !prev);
+    if (search.length > 0) setWeather();
+    setInputState((prev) => !prev);
+    setData({ ...data, searchLocation: !searchLocation });
   };
 
   const onChangeHandler = (evt) => {
-    setSearch(evt.target.value);
+    const city = evt.target.value;
+    setData({ ...data, search: city, cityName: city });
   };
 
+  const onKeyPressHandler = (evt) => {
+    if (evt.key === 'Enter') {
+      setWeather();
+    }
+  };
   return (
     <>
-      {/* потом поменять на сёрч */}
-      <SearchLocation state={state}>{value}</SearchLocation>
+      <SearchLocation state={searchLocation}>{cityName}</SearchLocation>
       <Search
-        state={state}
+        state={searchLocation}
         onBlur={onBlurHandler}
         value={search}
-        onChange={(evt) => onChangeHandler(evt)}
+        inputState={inputState}
+        onChange={onChangeHandler}
+        onKeyPress={onKeyPressHandler}
       />
       <SearchIcon onClick={onClickHandler} />
     </>

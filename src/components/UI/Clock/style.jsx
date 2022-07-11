@@ -7,6 +7,7 @@ const Container = styled.li`
   align-items: center;
   margin: 0;
   min-height: ${(props) => (props.size === 'max' ? '315px' : '272px')};
+  width: 100%;
   max-width: 165px;
 `;
 
@@ -14,6 +15,7 @@ const Title = styled.span`
   display: block;
   font: var(--clock-aq-uvi);
   color: var(--main-color);
+  text-align: center;
 `;
 
 const ClockContainer = styled.div`

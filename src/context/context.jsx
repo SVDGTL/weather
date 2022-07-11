@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { createContext, useContext, useState } from 'react';
+// import axios from 'axios';
+import { createContext, useContext, useState, useMemo } from 'react';
 
 const Data = createContext();
 
@@ -7,29 +8,39 @@ export function useData() {
   return useContext(Data);
 }
 
-function DataProvider({ children }) {
-  const [data] = useState({
-    degrees: {
-      deg: 27,
-      measure: '°C',
+export function DataProvider({ children }) {
+  const [data, setData] = useState({
+    // degrees: {
+    //   deg: 27,
+    //   measure: '°C',
+    // },
+    // cards: [
+    //   { temp: '21°C', day: 'Fri' },
+    //   { temp: '22°C', day: 'Sat' },
+    //   { temp: '23°C', day: 'Sun' },
+    //   { temp: '24°C', day: 'Mon' },
+    // ],
+    // date: {
+    //   day: '17th Jun ‘21',
+    //   time: 'Thrusday | 2:45 am',
+    // },
+    error: false,
+    noGeo: true,
+    geolocation: {
+      latitude: null,
+      longitude: null,
     },
-    cards: [
-      { temp: '21°C', day: 'Fri' },
-      { temp: '22°C', day: 'Sat' },
-      { temp: '23°C', day: 'Sun' },
-      { temp: '24°C', day: 'Mon' },
-    ],
-    date: {
-      day: '17th Jun ‘21',
-      time: 'Thrusday | 2:45 am',
-    },
+    weather: {},
+    inputValue: '',
+    searchLocation: false,
+    search: '',
+    cityName: '',
+    air: null,
   });
-
-  return <Data.Provider value={data}>{children}</Data.Provider>;
+  const memoData = useMemo(() => ({ data, setData }), [data]);
+  return <Data.Provider value={memoData}>{children}</Data.Provider>;
 }
 
 DataProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default DataProvider;

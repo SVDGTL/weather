@@ -32,8 +32,8 @@ const Global = createGlobalStyle`
     // ALL
     --letter-spacing: 0em;
 
-    /* height: 100vh;
-    width: 100vw; */
+    height: 100vh;
+    width: 100vw;
     background: var(--n1);
     color: var(--main-color);
     /* display: flex;
