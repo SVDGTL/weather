@@ -12,5 +12,10 @@ export const Container = styled.main`
   align-items: flex-start;
   justify-content: space-between;
 `;
-
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
 export const SwitchButton = styled.div``;
