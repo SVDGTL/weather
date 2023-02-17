@@ -10,7 +10,8 @@ export function useData() {
 
 export function DataProvider({ children }) {
   const [data, setData] = useState({
-    deg: 27,
+    deg: undefined,
+    degFeel: undefined,
     measure: 'C',
     // cards: [
     //   { temp: '21°C', day: 'Fri' },

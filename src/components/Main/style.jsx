@@ -10,7 +10,7 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  //justify-content: space-between;
 `;
 export const Header = styled.div`
   display: flex;

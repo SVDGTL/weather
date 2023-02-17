@@ -24,6 +24,7 @@ const Geolocation = () => {
           setData({
             ...data,
             deg: weather.current.temp,
+            degFeel: weather.current.feels_like,
             geolocation: { lat, lon },
             weather,
             noGeo: false,

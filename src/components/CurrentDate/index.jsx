@@ -9,9 +9,11 @@ function CurrentDate() {
       clearInterval(timer);
     };
   }, []);
+  const day = date.toLocaleDateString('ru-RU', { dateStyle: 'full' });
+  console.log(day);
   return (
     <Container>
-      <Day>{date.toLocaleDateString('ru-RU', { dateStyle: 'full' })}</Day>
+      <Day>{}</Day>
       <Time>
         {date.toLocaleTimeString('ru-RU', {
           hour: '2-digit',

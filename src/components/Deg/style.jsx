@@ -22,4 +22,10 @@ const StyledSpan = styled.span`
 
   font: var(--deg-par);
 `;
-export { Container, Degrees, StyledSpan };
+const StyledSpanFeel = styled.span`
+  margin: 0;
+  padding: 0;
+
+  font: var(--time);
+`;
+export { Container, Degrees, StyledSpan, StyledSpanFeel };
