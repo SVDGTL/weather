@@ -20,8 +20,10 @@ const Geolocation = () => {
           weather = await getWeather(geolocation);
           const city = await getCityName(lat, lon);
           const air = await getAir(geolocation);
+          console.log(weather);
           setData({
             ...data,
+            deg: weather.current.temp,
             geolocation: { lat, lon },
             weather,
             noGeo: false,

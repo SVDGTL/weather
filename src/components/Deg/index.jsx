@@ -2,12 +2,15 @@ import { Container, Degrees, StyledSpan } from './style';
 import { useData } from '../../context/context';
 
 function Deg() {
-  const { degrees } = useData();
-
+  const { data } = useData();
+  const deg = data.deg;
+  const measure = data.measure;
+  const ctemp = Math.round(deg);
+  const gtemp = ctemp * 32;
   return (
     <Container>
-      <Degrees>{degrees.deg}</Degrees>
-      <StyledSpan>{degrees.measure}</StyledSpan>
+      <Degrees>{measure === 'C' ? ctemp : gtemp}</Degrees>
+      <StyledSpan>{measure === 'C' ? '°C' : '℉'}</StyledSpan>
     </Container>
   );
 }

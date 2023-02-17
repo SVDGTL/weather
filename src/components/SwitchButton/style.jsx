@@ -14,7 +14,7 @@ const Button = styled.div`
   background-color: rgba(0, 0, 0, 0.16);
   &:before {
     position: absolute;
-    content: '${(props) => (props.isOn ? 'F' : 'C')}';
+    content: '${(props) => (props.isOn ? 'C' : 'F')}';
     width: 52px;
     height: 100%;
     display: flex;
@@ -26,7 +26,7 @@ const Button = styled.div`
   }
   &:after {
     position: absolute;
-    content: '${(props) => (props.isOn ? 'C' : 'F')}';
+    content: '${(props) => (props.isOn ? 'F' : 'C')}';
     width: 52px;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.18);
