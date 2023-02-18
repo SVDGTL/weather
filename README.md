@@ -18,4 +18,4 @@ UI сверстан самостоятельно.
 
 Скопировать репозиторий -> npm i -> npm start
 
-## [Ссылка на GithubPages](ahttps://svdgtl.github.io/weather/)
+## [Ссылка на GithubPages](https://svdgtl.github.io/weather/)
