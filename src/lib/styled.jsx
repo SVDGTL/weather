@@ -48,16 +48,6 @@ const Global = createGlobalStyle`
     display: flex;
     align-items: center;
   }
-
-  //#root {
-  //  display: flex;
-  //  justify-content: space-between;
-  //  align-items: center;
-  //  flex-direction: row;
-  //  height: 100%;
-  //  max-height: 900px;
-  //  border-radius: 30px;
-  //}
 `;
 
 export default Global;

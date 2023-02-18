@@ -18,35 +18,37 @@ function Item({ item }) {
 
 function Params() {
   const { data } = useData();
-  const wind = data.weather.current.wind_speed;
-  const humidity = data.weather.current.humidity;
-  const pressure = Math.round(data.weather.current.pressure / 1.333);
-  const params = [
-    {
-      name: 'Ветер',
-      value: wind,
-      measure: 'м/с',
-      icon: windIcon,
-    },
-    {
-      name: 'Влажность',
-      value: humidity,
-      measure: '%',
-      icon: humIcon,
-    },
-    {
-      name: 'Давление',
-      value: pressure,
-      measure: 'мм.р.т',
-      icon: presIcon,
-    },
-  ];
+  let params;
+  if (!data.error) {
+    const wind = data.weather.current.wind_speed;
+    const humidity = data.weather.current.humidity;
+    const pressure = Math.round(data.weather.current.pressure / 1.333);
+    params = [
+      {
+        name: 'Ветер',
+        value: wind,
+        measure: 'м/с',
+        icon: windIcon,
+      },
+      {
+        name: 'Влажность',
+        value: humidity,
+        measure: '%',
+        icon: humIcon,
+      },
+      {
+        name: 'Давление',
+        value: pressure,
+        measure: 'мм.р.т',
+        icon: presIcon,
+      },
+    ];
+  }
   return (
     <Container>
       <Measure>
-        {params.map((item) => (
-          <Item item={item} key={item.name} />
-        ))}
+        {!data.error &&
+          params.map((item) => <Item item={item} key={item.name} />)}
       </Measure>
     </Container>
   );

@@ -36,8 +36,8 @@ const Slider = styled.div`
   z-index: 100;
   transform-origin: bottom left;
   transform: scale(-1) rotate(calc(1deg * (${(prop) => prop.deg} * 1.8)));
-  // transition: transform 1s ease-out;
-  // animation: ${rotate2} 1s ease-in;
+  //transition: transform 1s ease-out;
+  animation: ${rotate2} 1s ease-in;
 
   ::after {
     position: absolute;
