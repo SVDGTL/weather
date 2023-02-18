@@ -14,21 +14,42 @@ import { useData } from '../../context/context';
 function AirQuality({ data }) {
   // качество воздуха
   const airData = data.air;
-  let airSubtitle;
+  let airRevert;
   switch (airData) {
     case 1:
-      airSubtitle = 'Хорошее';
+      airRevert = 5;
       break;
     case 2:
-      airSubtitle = 'Удовлетворительное';
+      airRevert = 4;
       break;
     case 3:
-      airSubtitle = 'Посредственное';
+      airRevert = 3;
       break;
     case 4:
-      airSubtitle = 'Плохое';
+      airRevert = 2;
       break;
     case 5:
+      airRevert = 1;
+      break;
+    default:
+      airRevert = 5;
+      break;
+  }
+  let airSubtitle;
+  switch (airRevert) {
+    case 5:
+      airSubtitle = 'Отличное';
+      break;
+    case 4:
+      airSubtitle = 'Хорошее';
+      break;
+    case 3:
+      airSubtitle = 'Среднее';
+      break;
+    case 2:
+      airSubtitle = 'Плохое';
+      break;
+    case 1:
       airSubtitle = 'Очень плохое';
       break;
     default:
@@ -36,14 +57,16 @@ function AirQuality({ data }) {
       break;
   }
   const airQuality = {
-    value: airData,
+    value: airRevert,
     valueMax: 5,
     name: 'Качество воздуха',
     subTitle: airSubtitle,
   };
+  const value = (airQuality.value * 100) / airQuality.valueMax;
+  const deg = value > 98 ? 98 : value;
   return (
     <Progressbar
-      deg={(airQuality.value * 100) / airQuality.valueMax}
+      deg={deg < 4 ? 4 : deg}
       name={airQuality.name}
       value={airQuality.value}
       max={airQuality.valueMax}
@@ -82,9 +105,11 @@ function UVIndex({ weather }) {
     name: 'UV-индекс',
     subTitle: uvSubtitle,
   };
+  const value = (uviData.value * 100) / uviData.valueMax;
+  const deg = value > 98 ? 98 : value;
   return (
     <Progressbar
-      deg={(uviData.value * 100) / uviData.valueMax}
+      deg={deg < 4 ? 4 : deg}
       name={uviData.name}
       value={uviData.value}
       max={uviData.valueMax}
@@ -103,15 +128,22 @@ function Sunrise({ currentDay }) {
   const sunriseMinutes = sunriseM < 10 ? `${sunriseM}0` : sunriseM;
   const sunriseHours = sunriseH < 10 ? `0${sunriseH}` : sunriseH;
   // в этом апи нет времени окончания рассвета, так что будет хардкод
-  const sunrisehhEng = sunriseHours;
-  const sunrisemmEnd = sunriseM + 15;
+  let sunrisehhEnd = sunriseH;
+  let sunrisemmEnd = sunriseM + 15;
+  if (sunrisemmEnd >= 60) {
+    sunrisehhEnd += 1;
+    sunrisemmEnd -= 60;
+  }
+  const sunriseHoursEnd = sunrisehhEnd < 10 ? `0${sunrisehhEnd}` : sunrisehhEnd;
+  const sunriseMinutesEnd =
+    sunrisemmEnd < 10 ? `0${sunrisemmEnd}` : sunrisemmEnd;
   const time = {
     title: 'Рассвет',
     hh: sunriseHours,
     mm: sunriseMinutes,
     ss: sunriseS,
-    hhEng: sunrisehhEng,
-    mmEnd: sunrisemmEnd,
+    hhEng: sunriseHoursEnd,
+    mmEnd: sunriseMinutesEnd,
   };
   return <Clock time={time} />;
 }
@@ -122,20 +154,25 @@ function Sunset({ currentDay }) {
   const sunset = new Date(sunsetTime * 1000);
   const sunsetH = sunset.getHours();
   const sunsetM = sunset.getMinutes();
-  console.log(sunsetM);
   const sunsetS = sunset.getSeconds();
   const sunsetMinutes = sunsetM < 10 ? `0${sunsetM}` : sunsetM;
   const sunsetHours = sunsetH < 10 ? `0${sunsetH}` : sunsetH;
   // в этом апи нет времени окончания заката, так что будет хардкод
-  const sunsethhEng = sunsetHours;
-  const sunsetmmEnd = sunsetM + 25;
+  let sunsethhEnd = sunsetH;
+  let sunsetmmEnd = sunsetM + 25;
+  if (sunsetmmEnd >= 60) {
+    sunsethhEnd += 1;
+    sunsetmmEnd -= 60;
+  }
+  const sunsetHoursEnd = sunsethhEnd < 10 ? `0${sunsethhEnd}` : sunsethhEnd;
+  const sunsetMinutesEnd = sunsetmmEnd < 10 ? `0${sunsetmmEnd}` : sunsetmmEnd;
   const time = {
     title: 'Закат',
     hh: sunsetHours,
     mm: sunsetMinutes,
     ss: sunsetS,
-    hhEng: sunsethhEng,
-    mmEnd: sunsetmmEnd,
+    hhEng: sunsetHoursEnd,
+    mmEnd: sunsetMinutesEnd,
   };
   return <Clock time={time} />;
 }
@@ -168,7 +205,6 @@ function Moon({ currentDay }) {
 
 function Aside() {
   const { data } = useData();
-  console.log(data.error);
   let weather;
   let uvData;
   let currentDay;

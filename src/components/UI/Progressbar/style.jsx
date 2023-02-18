@@ -33,13 +33,14 @@ const Slider = styled.div`
   height: 6px;
   width: 98px;
   background-color: transparent;
-  z-index: 1000;
+  z-index: 100;
   transform-origin: bottom left;
   transform: scale(-1) rotate(calc(1deg * (${(prop) => prop.deg} * 1.8)));
-  transition: transform 1s ease-out;
+  //transition: transform 1s ease-out;
   animation: ${rotate2} 1s ease-in;
 
   ::after {
+    position: absolute;
     content: '';
     height: 16px;
     width: 16px;
@@ -55,6 +56,8 @@ const SubTitle = styled.span`
   font-family: Inter, sans-serif;
   display: block;
   margin: 0;
+  max-width: 135px;
+  overflow: hidden;
   font-style: normal;
   font-weight: 300;
   font-size: 19px;

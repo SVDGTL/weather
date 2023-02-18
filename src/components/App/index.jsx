@@ -1,10 +1,14 @@
 import { useEffect } from 'react';
+// Лоадер
 import ReactLoading from 'react-loading';
-import { useData } from '../../context/context';
+// Компоненты
 import Main from '../Main';
 import Aside from '../Aside';
+// Вспомогательные функции
+import { useData } from '../../context/context';
 import { getWeather, getCityName, getAir } from '../../services/API';
-import Loading from './style';
+// стили
+import { Loading, Root } from './style';
 
 const Geolocation = () => {
   const { data, setData } = useData();
@@ -22,6 +26,8 @@ const Geolocation = () => {
           const air = await getAir(geolocation);
           setData({
             ...data,
+            deg: weather.current.temp,
+            degFeel: weather.current.feels_like,
             geolocation: { lat, lon },
             weather,
             noGeo: false,
@@ -55,8 +61,10 @@ function App() {
         </Loading>
       )}
       <Geolocation />
-      {!loading && <Main />}
-      {!loading && <Aside />}
+      <Root>
+        {!loading && <Main />}
+        {!loading && <Aside />}
+      </Root>
     </>
   );
 }
