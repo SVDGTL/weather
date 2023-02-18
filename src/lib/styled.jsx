@@ -15,12 +15,13 @@ const Global = createGlobalStyle`
     --n2: linear-gradient(248.66deg, #91BEF3 0%, #48355B 100%);
     --n3: linear-gradient(248.66deg, #8C6BAE 0%, #AAC0FF 100%);
     // MAIN
-    --deg: 100 164px/197px Inter;
+    --deg: 100 164px/134px Inter;
     --deg-par: 400 32px/38px Inter;
+    --day-number: 400 48px/43px Inter;
     --day: 300 36px/43px Inter;
     --time: 300 24px/29px Inter;
-    --card: 400 24px/30px Overpass;
-    --params: 400 22px/28px Overpass;
+    --card: 400 24px/30px Inter;
+    --params: 400 22px/28px Inter;
     // ASIDE
     --search: 300 32px/38px Inter;
     --clock-aq-uvi: 400 28px/34px Inter;
@@ -32,27 +33,31 @@ const Global = createGlobalStyle`
     // ALL
     --letter-spacing: 0em;
 
-    height: 100vh;
-    width: 100vw;
+    //height: 100vh;
+    //width: 100vw;
     background: var(--n1);
+    background-repeat: no-repeat;
+    background-size: contain;
     color: var(--main-color);
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     max-width: 1440px;
-    max-height: 900px;
     margin: 0 auto;
   }
-
-  #root {
-    /* border: 2px solid pink; // TODO: УДАЛИТЬ ПОТОМ
-    border-radius: 0.2rem; // TODO: УДАЛИТЬ ПОТОМ */
-
+  
+  body {
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-direction: row;
   }
+
+  //#root {
+  //  display: flex;
+  //  justify-content: space-between;
+  //  align-items: center;
+  //  flex-direction: row;
+  //  height: 100%;
+  //  max-height: 900px;
+  //  border-radius: 30px;
+  //}
 `;
 
 export default Global;

@@ -1,32 +1,51 @@
-import { Container, Measure } from './style';
+import { Container, Measure, Param, Icon, Value, Box } from './style';
+import { useData } from '../../context/context';
+import presIcon from '../../images/icons/pres.svg';
+import windIcon from '../../images/icons/wind.svg';
+import humIcon from '../../images/icons/hum.svg';
 
-function Item({ el }) {
-  return <p>{`${el.name} ${el.value} ${el.measure} |`}</p>;
+function Item({ item }) {
+  return (
+    <Box>
+      <Icon icon={item.icon} />
+      <Param>{item.name}</Param>
+      <Value>
+        {item.value} {item.measure}
+      </Value>
+    </Box>
+  );
 }
 
 function Params() {
-  const data = [
+  const { data } = useData();
+  const wind = data.weather.current.wind_speed;
+  const humidity = data.weather.current.humidity;
+  const pressure = Math.round(data.weather.current.pressure / 1.333);
+  const params = [
     {
-      name: 'Wind',
-      value: '10',
-      measure: 'km/h',
+      name: 'Ветер',
+      value: wind,
+      measure: 'м/с',
+      icon: windIcon,
     },
     {
-      name: 'Hum',
-      value: '54',
+      name: 'Влажность',
+      value: humidity,
       measure: '%',
+      icon: humIcon,
     },
     {
-      name: 'Rain',
-      value: '0.2',
-      measure: '%',
+      name: 'Давление',
+      value: pressure,
+      measure: 'мм.р.т',
+      icon: presIcon,
     },
   ];
   return (
     <Container>
       <Measure>
-        {data.map((el) => (
-          <Item el={el} />
+        {params.map((item) => (
+          <Item item={item} key={item.name} />
         ))}
       </Measure>
     </Container>

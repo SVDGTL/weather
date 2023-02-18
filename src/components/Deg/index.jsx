@@ -1,4 +1,10 @@
-import { Container, Degrees, StyledSpan, StyledSpanFeel } from './style';
+import {
+  Container,
+  Degrees,
+  FlexDiv,
+  StyledSpan,
+  StyledSpanFeel,
+} from './style';
 import { useData } from '../../context/context';
 
 function Deg() {
@@ -7,17 +13,19 @@ function Deg() {
   const measure = data.measure;
   const ctemp = Math.round(deg);
   const gtemp = ctemp * 32;
-  const tempFeel = Math.round(data.degFeel);
+  const ctempFeel = Math.round(data.degFeel);
+  const ftempFeel = Math.round(data.degFeel) * 32;
   return (
-    <>
-      <Container>
-        <Degrees>{measure === 'C' ? ctemp : gtemp}</Degrees>
+    <Container>
+      <Degrees>{measure === 'C' ? ctemp : gtemp}</Degrees>
+      <FlexDiv>
         <StyledSpan>{measure === 'C' ? '°C' : '℉'}</StyledSpan>
-      </Container>
-      <StyledSpanFeel>
-        Ощущается как {tempFeel} {measure === 'C' ? '°C' : '℉'}
-      </StyledSpanFeel>
-    </>
+        <StyledSpanFeel>
+          чувствуется как {measure === 'C' ? ctempFeel : ftempFeel}
+          {measure === 'C' ? '°C' : '℉'}
+        </StyledSpanFeel>
+      </FlexDiv>
+    </Container>
   );
 }
 

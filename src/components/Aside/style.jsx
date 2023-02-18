@@ -4,8 +4,7 @@ const AsideContainer = styled.aside`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: 100%;
-  max-width: 576px;
+  width: 576px;
   min-height: 900px;
   height: 100%;
   padding: 40px;
@@ -15,6 +14,8 @@ const AsideContainer = styled.aside`
     rgba(255, 255, 255, 0.4) 0%,
     rgba(255, 255, 255, 0) 100%
   );
+  box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(21px);
 `;
 
 const ProgressContainer = styled.section`

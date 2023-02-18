@@ -18,8 +18,15 @@ const SearchLocation = styled.p`
   background: url(${iconLocation}) no-repeat left center;
   background-size: 26px 32px;
 `;
-
-const SearchIcon = styled.div`
+const Form = styled.form.attrs((props) => ({
+  onSubmit: props.onSubmit,
+}))``;
+const SearchIcon = styled.button.attrs((props) => ({
+  onClick: props.onClick,
+  type: 'submit',
+}))`
+  outline: none;
+  border: none;
   position: absolute;
   top: 16px;
   right: 16px;
@@ -37,7 +44,8 @@ const Search = styled.input.attrs((props) => ({
   name: 'search',
   minlength: 3,
   value: props.value,
-  disabled: props.inputState,
+  onClick: props.onClick,
+  // placeholder: '    Введите город и нажмите Enter',
 }))`
   position: relative;
   padding: 0 0 0 19px;
@@ -54,6 +62,11 @@ const Search = styled.input.attrs((props) => ({
   outline: none;
   border-radius: 20px;
   z-index: 100;
+
+  ::placeholder {
+    color: white;
+    font-size: 24px;
+  }
 
   color: var(--main-color);
   font-style: normal;
@@ -74,4 +87,4 @@ const Search = styled.input.attrs((props) => ({
   }
 `;
 
-export { Search, SearchIcon, SearchLocation };
+export { Search, SearchIcon, SearchLocation, Form };

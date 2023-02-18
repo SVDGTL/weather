@@ -18,4 +18,14 @@ export const Header = styled.div`
   align-items: center;
   width: 100%;
 `;
+
+export const Cards = styled.ul`
+  display: flex;
+  gap: 54px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-width: 766px;
+  overflow: hidden;
+`;
 export const SwitchButton = styled.div``;

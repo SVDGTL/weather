@@ -1,21 +1,35 @@
 import PropTypes from 'prop-types';
 
-import { Container, Text } from './style';
-import CardIcon from '../Icons/CardIcon';
+import { Container, Text, TextSmall, TextBold } from './style';
+import WeatherIcon from '../Icons/WeatherIcon';
+import { useData } from '../../context/context';
 
-function Card({ temp, day }) {
+function Card({ day, icon, weather, feels }) {
+  const { data } = useData();
+  const weatherF = weather * 32;
+  const feelsF = feels * 32;
+  const measure = data.measure;
   return (
     <Container>
-      <Text>{temp}</Text>
-      <CardIcon />
-      <Text>{day}</Text>
+      <Text>
+        {measure === 'C' ? weather : weatherF}
+        {measure === 'C' ? '°C' : '℉'}
+      </Text>
+      <TextSmall>
+        как {measure === 'C' ? feels : feelsF}
+        {measure === 'C' ? '°C' : '℉'}
+      </TextSmall>
+      <WeatherIcon size="small" icon={icon} />
+      <TextBold>{day}</TextBold>
     </Container>
   );
 }
 
 Card.propTypes = {
-  temp: PropTypes.string.isRequired,
   day: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  weather: PropTypes.number.isRequired,
+  feels: PropTypes.number.isRequired,
 };
 
 export default Card;

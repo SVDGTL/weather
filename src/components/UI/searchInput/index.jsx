@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { Search, SearchIcon, SearchLocation } from './style';
+import { useRef, useState } from 'react';
+import { Form, Search, SearchIcon, SearchLocation } from './style';
 import { useData } from '../../../context/context';
 import { getGeo, getWeather, getAir } from '../../../services/API';
 
 function SearchInput() {
-  const [inputState, setInputState] = useState(true);
   // контекст
   const { data, setData } = useData();
-  const { searchLocation, search, cityName } = data;
+  const { search, cityName } = data;
+  const ref = useRef();
+  const [searchLocation, setSearchLocation] = useState(false);
   // useEffect(() => {
   //   if (geolocation.latitude !== null) {
   //     onLoadWeather();
@@ -24,37 +25,40 @@ function SearchInput() {
 
   const onBlurHandler = () => {
     setData({ ...data, searchLocation: !searchLocation, search: ' ' });
-    setInputState((prev) => !prev);
   };
 
-  const onClickHandler = () => {
-    if (search.length > 0) setWeather();
-    setInputState((prev) => !prev);
-    setData({ ...data, searchLocation: !searchLocation });
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    ref.current.blur();
+    ref.current.placeholder = '';
+    setWeather();
+    setSearchLocation(false);
+  };
+
+  const onSearchIconClick = () => {
+    ref.current.focus();
+    setSearchLocation(true);
+    ref.current.placeholder = 'Введите текст и нажмите Enter';
   };
 
   const onChangeHandler = (evt) => {
     const city = evt.target.value;
     setData({ ...data, search: city, cityName: city });
   };
-
-  const onKeyPressHandler = (evt) => {
-    if (evt.key === 'Enter') {
-      setWeather();
-    }
-  };
+  console.log(searchLocation);
   return (
     <>
       <SearchLocation state={searchLocation}>{cityName}</SearchLocation>
-      <Search
-        state={searchLocation}
-        onBlur={onBlurHandler}
-        value={search}
-        inputState={inputState}
-        onChange={onChangeHandler}
-        onKeyPress={onKeyPressHandler}
-      />
-      <SearchIcon onClick={onClickHandler} />
+      <Form onSubmit={onSubmit}>
+        <Search
+          state={searchLocation}
+          onBlur={onBlurHandler}
+          value={search}
+          onChange={onChangeHandler}
+          ref={ref}
+        />
+        {!searchLocation && <SearchIcon onClick={onSearchIconClick} />}
+      </Form>
     </>
   );
 }

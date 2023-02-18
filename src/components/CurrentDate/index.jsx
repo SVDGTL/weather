@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, Day, Time } from './style';
+import { Container, Day, Time, NumberD } from './style';
 
 function CurrentDate() {
   const [date, setDate] = useState(new Date());
@@ -9,16 +9,26 @@ function CurrentDate() {
       clearInterval(timer);
     };
   }, []);
-  const day = date.toLocaleDateString('ru-RU', { dateStyle: 'full' });
-  console.log(day);
+  const dayArray = date
+    .toLocaleDateString('ru-RU', { dateStyle: 'full' })
+    .split(' ');
+  const time = date.toLocaleTimeString('ru-RU', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+  const day = dayArray[0].replace(/[^а-яё]/gi, '');
+  const dayNumber = dayArray[1];
+  const month = dayArray[2];
+  const year = dayArray[3].slice(2.3);
   return (
     <Container>
-      <Day>{}</Day>
+      <div>
+        <NumberD>{dayNumber}</NumberD>
+        <Day>ое, {month}</Day>
+        <NumberD> &apos;{year}</NumberD>
+      </div>
       <Time>
-        {date.toLocaleTimeString('ru-RU', {
-          hour: '2-digit',
-          minute: '2-digit',
-        })}
+        {day} | {time}
       </Time>
     </Container>
   );
