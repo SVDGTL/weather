@@ -9,12 +9,14 @@ export const Loading = styled.div`
 `;
 
 export const Root = styled.div`
+  box-sizing: border-box;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   height: 100%;
-  max-height: 900px;
+  //max-height: 900px;
   border-radius: 30px;
   border: 2px solid rgba(255, 255, 255, 0.2);
 `;

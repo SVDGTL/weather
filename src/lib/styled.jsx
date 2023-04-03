@@ -44,6 +44,8 @@ const Global = createGlobalStyle`
   }
   
   body {
+    box-sizing: border-box;
+    overflow: hidden;
     height: 100vh;
     display: flex;
     align-items: center;

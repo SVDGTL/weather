@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 const AsideContainer = styled.aside`
+  box-sizing: border-box;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 576px;
-  min-height: 900px;
+  //min-height: 900px;
   height: 100%;
   padding: 40px;
 

@@ -5,7 +5,7 @@ export const Container = styled.main`
   padding: 40px;
   min-width: 864px;
   max-width: 864px;
-  min-height: 900px;
+  //min-height: 900px;
   height: 100%;
   display: flex;
   flex-direction: column;
